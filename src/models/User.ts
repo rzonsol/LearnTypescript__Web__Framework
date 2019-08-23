@@ -3,7 +3,7 @@ interface UserProps {
 	age?: number;
 }
 
-type Callback = () => {};
+type Callback = () => void;
 
 export class User {
 	private events: { [key: string]: Callback[] } = {};
@@ -18,5 +18,9 @@ export class User {
 		Object.assign(this.data, props);
 	}
 
-	on(eventName: string, callback: Callback) {}
+	on(eventName: string, callback: Callback): void {
+		const handlers = this.events[eventName] || [];
+		handlers.push(callback);
+		this.events[eventName] = handlers;
+	}
 }

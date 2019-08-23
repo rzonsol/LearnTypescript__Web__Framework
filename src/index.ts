@@ -2,9 +2,8 @@ import { User } from './models/User';
 
 const user = new User({ name: 'piotr', age: 32 });
 
-user.set({ age: 38 });
+user.on('change', () => {
+	console.log('callback');
+});
 
-console.log(`
-name: ${user.get('name')};
-age: ${user.get('age')}
-`);
+console.log(user);
