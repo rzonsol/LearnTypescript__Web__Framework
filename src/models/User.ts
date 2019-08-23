@@ -16,6 +16,7 @@ export class User {
 
 	set(props: UserProps): void {
 		Object.assign(this.data, props);
+		console.log('s');
 	}
 
 	on(eventName: string, callback: Callback): void {
