@@ -1,6 +1,7 @@
 interface UserProps {
 	name?: string;
 	age?: number;
+	id?: number;
 }
 
 type Callback = () => void;
@@ -16,7 +17,6 @@ export class User {
 
 	set(props: UserProps): void {
 		Object.assign(this.data, props);
-		console.log('s');
 	}
 
 	on(eventName: string, callback: Callback): void {

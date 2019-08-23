@@ -1,13 +1,3 @@
-import { User } from './models/User';
+import axios from 'axios';
 
-const user = new User({ name: 'piotr', age: 32 });
-
-user.on('change', () => {
-	console.log('callback1');
-});
-user.on('change', () => {
-	console.log('callback2');
-});
-
-console.log(user);
-user.trigger('change');
+axios.post('http://localhost:3000/users', { name: 'piotr', age: '32' });
