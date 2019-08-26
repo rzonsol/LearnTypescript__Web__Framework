@@ -8,4 +8,8 @@ export class Attributes<T> {
 	set = (props: T): void => {
 		Object.assign(this.data, props);
 	};
+
+	getAll(): T {
+		return this.data;
+	}
 }

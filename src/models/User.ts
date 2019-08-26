@@ -50,4 +50,12 @@ export class User {
 			}
 		);
 	}
+
+	save() {
+		this.sync.save(this.attributes.getAll()).then(
+			(response: AxiosResponse): void => {
+				this.trigger('save');
+			}
+		);
+	}
 }
