@@ -1,6 +1,5 @@
 import { AxiosPromise, AxiosResponse } from 'axios';
-
-export type Callback = () => void;
+import { Callback } from './Eventing';
 
 export interface ModelAttributes<T> {
 	set(value: T): void;
