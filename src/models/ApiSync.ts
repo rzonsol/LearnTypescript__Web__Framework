@@ -4,7 +4,7 @@ interface Entity {
 	id?: number;
 }
 
-export class Sync<T extends Entity> {
+export class ApiSync<T extends Entity> {
 	constructor(public rootUrl: string) {}
 
 	fetch = (id: number): AxiosPromise => {
