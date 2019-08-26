@@ -32,4 +32,9 @@ export class User {
 	get get() {
 		return this.attributes.get;
 	}
+
+	set(upadte: UserProps): void {
+		this.attributes.set(upadte);
+		this.events.trigger('change');
+	}
 }
