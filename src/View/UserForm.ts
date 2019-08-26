@@ -1,17 +1,8 @@
-import { User } from '../models/User';
+import { User, UserProps } from '../models/User';
 import { isThisTypeNode } from 'typescript';
+import { View } from './View';
 
-export class UserForm {
-	constructor(private parent: Element, public model: User) {
-		this.bindModel();
-	}
-
-	bindModel() {
-		this.model.on('change', () => {
-			this.render();
-		});
-	}
-
+export class UserForm extends View<User, UserProps> {
 	eventsMap(): { [key: string]: () => void } {
 		return {
 			'click:.set-age': this.onSetAgeClick,
@@ -46,24 +37,5 @@ export class UserForm {
                 <button class="set-age">Set random age</button>
             </div>
         `;
-	}
-
-	private bindEvents(fragment: DocumentFragment): void {
-		const eventsMap = this.eventsMap();
-
-		Object.keys(eventsMap).forEach(key => {
-			const [eventName, selector] = key.split(':');
-			fragment.querySelectorAll(selector).forEach(element => {
-				element.addEventListener(eventName, eventsMap[key]);
-			});
-		});
-	}
-
-	render(): void {
-		this.parent.innerHTML = '';
-		const templateElement = document.createElement('template');
-		templateElement.innerHTML = this.template();
-		this.bindEvents(templateElement.content);
-		this.parent.append(templateElement.content);
 	}
 }
