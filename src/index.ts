@@ -2,8 +2,9 @@ import axios from 'axios';
 import { User } from './models/User';
 
 // axios.post('http://localhost:3000/users', { name: 'piotr', age: '32' });
-const user = new User({ name: 'sjdhfjsh', age: 12 });
+const user = new User({ id: 14 });
 user.on('change', () => {
-	console.log('Uer was change!!');
+	console.log('User was change!');
 });
-user.set({ name: 'Piotr' });
+user.fetch();
+console.log(user);
