@@ -1,9 +1,7 @@
 import axios from 'axios';
-import { User } from './models/User';
+import { User, UserProps } from './models/User';
+import { Collection } from './models/Collection';
 
-const user = User.buildUser({ id: 1, name: 'Piotr', age: 35 });
-user.on('save', () => {
-	console.log('User was save!');
-});
-user.save();
-console.log(user);
+const collection: Collection<User, UserProps> = User.buildUserCollection();
+collection.fetch();
+console.log(collection);
