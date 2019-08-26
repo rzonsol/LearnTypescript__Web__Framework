@@ -1,7 +1,7 @@
-import axios from 'axios';
-import { User, UserProps } from './models/User';
-import { Collection } from './models/Collection';
+import { UserForm } from './View/UserForm';
 
-const collection: Collection<User, UserProps> = User.buildUserCollection();
-collection.fetch();
-console.log(collection);
+const rootHtml = document.getElementById('root');
+console.log(rootHtml);
+
+const userForm: UserForm = new UserForm(rootHtml);
+userForm.render();
