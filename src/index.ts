@@ -5,6 +5,7 @@ const rootHtml = document.getElementById('root');
 console.log(rootHtml);
 
 const user: User = User.buildUser({ name: 'name', age: 20 });
-
-const userForm: UserForm = new UserForm(rootHtml, user);
-userForm.render();
+if (rootHtml) {
+	const userForm: UserForm = new UserForm(rootHtml, user);
+	userForm.render();
+}
