@@ -1,5 +1,7 @@
+import { User } from '../models/User';
+
 export class UserForm {
-	constructor(private parent: Element) {}
+	constructor(private parent: Element, public model: User) {}
 
 	eventsMap(): { [key: string]: () => void } {
 		return {
@@ -7,7 +9,7 @@ export class UserForm {
 		};
 	}
 
-	onButtonClick() {
+	private onButtonClick() {
 		console.log('Hi there.');
 	}
 
@@ -15,13 +17,15 @@ export class UserForm {
 		return `
             <div>
                 <h1>User Form</h1>
+                <div>User name: ${this.model.get('name')}</div>
+                <div>User age: ${this.model.get('age')}</div>
                 <input />
                 <button>Save</button>
             </div>
         `;
 	}
 
-	bindEvents(fragment: DocumentFragment): void {
+	private bindEvents(fragment: DocumentFragment): void {
 		const eventsMap = this.eventsMap();
 
 		Object.keys(eventsMap).forEach(key => {
