@@ -9,7 +9,7 @@ export interface ModelAttributes<T> {
 
 export interface Sync<T> {
 	fetch(id: number): AxiosPromise;
-	save(T): AxiosPromise;
+	save(arg0: T): AxiosPromise;
 }
 
 export interface Events {
