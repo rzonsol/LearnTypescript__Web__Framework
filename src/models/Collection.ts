@@ -23,6 +23,7 @@ export class Collection<T, K> {
 						this.models.push(this.deserialize(element));
 					}
 				);
+				this.trigger('change');
 			}
 		);
 	}
