@@ -1,5 +1,7 @@
 # LearnTypescript**Web**Framework
 
+Very siple web framework created during leaning typescript.
+
 ##Configuration
 
 - npm install -g json-server
